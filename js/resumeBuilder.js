@@ -1,9 +1,7 @@
-//$("body").append("Thomas Pushpathadam");
+var name = "Thomas Pushpathadam";
+var formattedName = HTMLheaderName.replace("%data%", name);
 
-var formattedName;
-var formattedRole;
-formattedName = HTMLheaderName.replace("%data%","Thomas Pushpathadam");
-formattedRole = HTMLheaderRole.replace("%data%","Web Design, Front-End Dev, Analytics");
-$("header").append(formattedName);
-$("header").prepend(formattedRole);
-console.log(formattedName)
+var role = "Web Design/Front-End Dev/Analytics";
+var formattedRole = HTMLheaderRole.replace("%data%",role);
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
