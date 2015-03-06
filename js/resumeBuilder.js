@@ -12,13 +12,14 @@ var bio = {
   "skills": [
       "breathing","eating", "drinking", "you get the picture"
       ],
-  "biopic": "images/fry.jpg",
-  "displayBio": function () {
+  "biopic": "images/HeadShot.jpg",
+  "display": function () {
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(formattedRole);
+
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     $("#header").prepend(formattedName);
 
-    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    $("#header").prepend(formattedRole);
 
     var formattedBiopic =  HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").append(formattedBiopic);
@@ -44,10 +45,26 @@ var bio = {
 
     // var formattedGeneric = '<li class="flex-item"><span class="orange-text">' + 'crap' + '</span><span class="white-text">' + 'crap'+ '</span></li>';
     //$("#topContacts").prepend(formattedGeneric);
+
+    var formattedLocation =  HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#footerContacts").prepend(formattedLocation);
+
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    $("#footerContacts").prepend(formattedGithub);
+
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    $("#footerContacts").prepend(formattedTwitter);
+
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    $("#footerContacts").prepend(formattedEmail);
+
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#footerContacts").prepend(formattedMobile);
+
   }
 };
 
-bio.displayBio();
+bio.display();
 
 var work = {
   "jobs": [
@@ -66,7 +83,7 @@ var work = {
       "description": "Eat, drink, repeat cycle"
     },
   ],
-  "displayWork" : function(){
+  "display" : function(){
     for (job in work.jobs){
       $("#workExperience").append(HTMLworkStart);
       var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
@@ -86,7 +103,7 @@ var work = {
   }
 }
 
-work.displayWork();
+work.display();
 
 function locationizer(work_obj){
     var workLocations = [];
@@ -105,16 +122,16 @@ var projects = {
     "title": "something",
     "dates": "2017",
     "description": "something i did",
-    "images": ["images/fry.jpg","images/fry.jpg"]
+    "images": ["images/DSC_0009.jpg"]
     },
     {
     "title": "something2",
     "dates": "2016",
     "description": "something i did later",
-    "images": ["images/fry.jpg","images/fry.jpg"]
+    "images": ["images/DSC_0013.jpg"]
     }
   ],
-  "displayProjects": function () {
+  "display": function () {
     for (project in projects.projects){
       $("#projects").append(HTMLprojectStart);
 
@@ -137,7 +154,7 @@ var projects = {
   }
 };
 
-projects.displayProjects();
+projects.display();
 
 var education = {
   "schools":[
@@ -158,48 +175,42 @@ var education = {
   ],
   "onlineCourses":[
     {
-      "title": "certificate in ",
-      "school": "institute of",
-      "dates": "2014",
-      "url": "www.something.com"
+      "title": "Certificate in bee keeping",
+      "school": "Superior Institute of bees",
+      "dates": "2015",
+      "url": "www.something-bee.com"
     },
     {
-      "title": "certificate in ",
-      "school": "institute of",
+      "title": "Certificate in chin-scratching ",
+      "school": "Ecole Polytechnique Normale Superier institute of near-sightedness",
       "dates": "2014",
-      "url": "www.something.com"
+      "url": "www.something-chin.com"
     }
   ],
-  "displayEducation": function () {
+  "display": function () {
     for (school in education.schools){
       $("#education").append(HTMLschoolStart);
 
       var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
       $(".education-entry:last").append(formattedSchoolName);
 
-      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
-      $(".education-entry:last").append(formattedSchoolLocation);
-
       var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
       $(".education-entry:last").append(formattedSchoolDegree);
-
-      if (education.schools[school].majors.length > 0) {
-        for (major in education.schools[school].majors) {
-          var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors[major]);
-          $(".project-entry:last").append(formattedSchoolMajor);
-        }
-      };
 
       var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
       $(".education-entry:last").append(formattedSchoolDates);
 
-      if (projects.projects[project].images.length > 0) {
-        for (image in projects.projects[project].images) {
-          var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
-          $(".project-entry:last").append(formattedProjectImage);
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
+      $(".education-entry:last").append(formattedSchoolLocation);
+
+      if (education.schools[school].majors.length > 0) {
+        for (major in education.schools[school].majors) {
+          var formattedSchoolMajor = HTMLschoolMajor.replace("%data%",education.schools[school].majors[major]);
+          $(".education-entry:last").append(formattedSchoolMajor);
         }
-      };
+      }
     };
+
 
     $(".education-entry:last").append(HTMLonlineClasses);
 
@@ -216,11 +227,13 @@ var education = {
 
       var formattedOnlineURL = HTMLonlineURL.replace("%data%",education.onlineCourses[course].url);
       $(".education-entry:last").append(formattedOnlineURL);
-    }
+
+    };
+
   }
 };
 
-education.displayEducation();
+education.display();
 
 var locationDescriptions = {
   "places" : [
@@ -279,6 +292,7 @@ function inName(name){
 
 //inName(bio.name);
 
-$("#header").prepend(internationalizeButton);
+$("#header").append(internationalizeButton);
+$("#header").append(americanizeButton);
 
 $("#mapDiv").append(googleMap);

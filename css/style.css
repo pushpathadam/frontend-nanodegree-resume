@@ -1,8 +1,13 @@
-* {
+p {
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Slab', serif;
 }
+
+h1, h2, h3, h4 {
+  font-family: 'Lato', sans-serif;
+}
+
 
 .clearfix {
   overflow: auto;
@@ -15,13 +20,14 @@
 
 h1 {
   font-size: 40px;
+  font-weight:300;
   color: #F5A623;
   line-height: 48px;
   display: inline;
 }
 
 h2 {
-  font-weight: bold;
+  font-weight: 300;
   font-size: 24px;
   color: #999999;
   line-height: 29px;
@@ -29,14 +35,15 @@ h2 {
 }
 
 h3 {
-  font-style: italic;
+  font-style: normal;
   font-size: 20px;
   color: #000000;
   line-height: 22px;
+  text-transform: uppercase;
 }
 
 h4 {
-  font-weight: bold;
+  font-weight: 300;
   font-size: 14px;
   color: #4A4A4A;
   line-height: 17px;
@@ -50,7 +57,7 @@ h2, h3, h4, h5 {
 
 
 .date-text {
-  font-style: italic;
+  font-style: normal;
   font-size: 14px;
   color: #999999;
   line-height: 16px;
@@ -58,7 +65,7 @@ h2, h3, h4, h5 {
 }
 
 .location-text {
-  font-style: italic;
+  font-style: normal  ;
   font-size: 14px;
   color: #999999;
   line-height: 16px;
@@ -80,7 +87,8 @@ a {
 }
 
 .welcome-message {
-  font-style: italic;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
   font-size: 18px;
   color: #F3F3F3;
   line-height: 28px;
@@ -221,13 +229,13 @@ span {
   background-image: -ms-linear-gradient(top, #3498db, #2980b9);
   background-image: -o-linear-gradient(top, #3498db, #2980b9);
   background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
   font-family: Arial;
   color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
+  font-size: 14px;
+  padding: 5px 5px 5px 5px;
   text-decoration: none;
 }
 

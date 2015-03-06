@@ -16,7 +16,7 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class = "phone" class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
 var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
 var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
@@ -49,25 +49,54 @@ var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
+var HTMLonlineClasses = '<h3> Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-var internationalizeButton = '<button class ="btn">Internationalize</button>';
+var internationalizeButton = '<button id= "b1" class ="btn">Internationalize</button>';
+var americanizeButton = '<button id = "b2" class ="btn">Americanize</button>';
+
 var googleMap = '<div id="map"></div>';
 
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
+/*
 $(document).ready(function() {
-  $('button').click(function() {
+  $('.b1').click(function() {
     var iName = inName(bio.name) || function(){};
     $('#name').html(iName);
   });
 });
+
+$(document).ready(function() {
+  $('.b2').click(function() {
+    var iName = bio.name || function(){};
+    $('#name').html(iName);
+  });
+});
+*/
+$(document).ready(function() {
+  $('#b1').click(function() {
+    var iName = inName(bio.name) || function(){};
+    $('#name').html(iName);
+    var iPhone = "00-1-" + bio.contacts.mobile;
+    var iformattedMobile = HTMLmobile.replace("%data%", iPhone);
+    $('.phone').html(iformattedMobile);
+  });
+  $('#b2').click(function() {
+    var iName = bio.name || function(){};
+    $('#name').html(iName);
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile)
+    $('.phone').html(formattedMobile);
+
+
+  })
+});
+
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -116,6 +145,21 @@ function initializeMap() {
   // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
+  // Adjusted color of the map to a more monochrome look
+  map.set('styles',[
+    {
+      "stylers": [
+        { "saturation": -100 }
+      ]
+    },
+    {
+      "featureType": "water",
+      "stylers": [
+        { "saturation": -100 },
+        { "lightness": -46 }
+      ]
+    }
+  ]);
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -161,7 +205,7 @@ function initializeMap() {
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
-      title: name
+      title: name,
     });
 
     // infoWindows are the little helper windows that open when you click
