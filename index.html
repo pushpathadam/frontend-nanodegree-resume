@@ -17,14 +17,33 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <head>
   <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Tells the browser what the title of this page should be. -->
   <title>Resume</title>
 
-  <!-- Load the page styles. -->
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <!-- Customized fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+
+  <!-- Load the page styles. -->
+  <!-- Kept local for now, ran into issues with pulling multiples from CDN's-->
+  <!-- Performance issue likely with multiple small files -->
+
+  <link href="css/pure-min.css" rel="stylesheet">
+  <link href="css/grids-responsive-min.css" rel="stylesheet">
+  <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" >
+  <!--[if lte IE 8]>
+      <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+      <link href="css/layouts/side-menu.css" rel="stylesheet" >
+  <!--<![endif]-->
+
   <link href="css/style.css" rel="stylesheet" type="text/css">
+
+
 
   <!--
   jQuery is a common JavaScript library for reading and making changes to the
@@ -50,21 +69,106 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-  <meta name="viewport" content="width=device-width">
+  <!-- <meta name="viewport" content="width=device-width"> -->
 </head>
 <body unresolved>
-  <div id="main">
 
+  <div id="layout">
+  <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+      <div class="pure-menu">
+          <ul class="pure-menu-list" id="list1">
+          </ul>
+          <ul class="pure-menu-list" id="list2">
+            <li class="pure-menu-item"><a href="#h-work" class="pure-menu-link">Work Experience</a></li>
+            <li class="pure-menu-item"><a href="#h-projects" class="pure-menu-link">Projects</a></li>
+            <li class="pure-menu-item"><a href="#h-education" class="pure-menu-link">Education</a></li>
+            <li class="pure-menu-item"><a href="#h-location" class="pure-menu-link">Locations</a></li>
+          </ul>
+          <ul class="pure-menu-list" id="list3">
+
+      </div>
+    </div>
+
+    <div id="main">
+      <div class="header pure-g">
+          <div id="headerContent">
+          </div>
+      </div>
+
+      <div class = "gray-background">
+        <div class="content pure-g" >
+            <!-- <div id="workExperience" class='gray'> -->
+            <div id="workExperience" class="pure-u-1">
+              <a name= "h-work"></a>
+              <h2 class="content-subhead">Work Experience</h2>
+            </div>
+        </div>
+      </div>
+
+      <div class="content pure-g" >
+        <div id="projects"  class="pure-u-1">
+          <a name= "h-projects"></a>
+          <h2 class="content-subhead">Projects</h2>
+        </div>
+      </div>
+
+      <div class = "gray-background">
+        <div class="content pure-g" >
+              <!--     <div id="education" class='grey'>-->
+          <div id="education" class="pure-u-1">
+            <a name= "h-education"></a>
+            <h2 class="content-subhead">Education</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="content pure-g" >
+        <div class="pure-u-1">
+          <a name= "h-locations"></a>
+          <h2 class="content-subhead">Where I've Lived and Worked</h2>
+        </div>
+
+        <div id="mapDiv" class="pure-u-1">
+        </div>
+      </div>
+
+      <div class=  "orange-background">
+        <div class="footer pure-g">
+            <!-- <div id="letsConnect" class='dark-gray'> -->
+          <div id="letsConnect" class="pure-u-1">
+
+            <h2 >Let's Connect</h2>
+              <!-- <ul id="footerContacts" class="flex-box">-->
+              <ul id="footerContacts" class="pure-menu pure-menu-horizontal">
+              </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <!--
+  <div id="main">
+-->
     <!--
     Everything from here to the <script> tag below is the skeleton of your
     website. Your code will add information to each of the sections of the
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
+    <!--
     <div id="header" class="center-content clearfix">
       <ul id="topContacts" class='flex-box'> </ul>
     </div>
     <div style='clear: both;'></div>
+
     <div id="workExperience" class='gray'>
       <h2>Work Experience</h2>
     </div>
@@ -83,6 +187,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       </ul>
     </div>
   </div>
+-->
+
+  <!--
+  The JS file uses vanilla JavaScript to simply toggle an active class that makes the menu responsive.
+  -->
+  <script src="js/ui.js"></script>
 
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
@@ -115,6 +225,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     */
 
 
+/*
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }
@@ -136,6 +247,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
     }
+*/
   </script>
+
+
 </body>
 </html>

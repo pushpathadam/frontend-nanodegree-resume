@@ -1,250 +1,210 @@
-p {
-  padding:0;
-  margin:0;
-  font-family: 'Roboto Slab', serif;
+/* font overrides */
+body {
+    font-size: 14px;
+}
+body, p, a {
+    font-family: 'Roboto Slab', serif;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Lato', sans-serif;
+h1, #side-name{
+    font-family: 'Anton', sans-serif;
+}
+
+h2,h3 {
+  font-family: 'Oswald', sans-serif;
+}
+
+/* pure color overrides */
+
+body {
+    background-color: #ede6e1;
+}
+a {
+    color: #cc5624;
+}
+
+.header h2 {
+    color: #333;
+}
+
+.content-subhead {
+    color: #333;
+}
+
+a:hover,
+a:focus {
+    color: #2d6c80;
+}
+.date-text, .location-text {
+    color: #333;
+    font-weight: 400;
+}
+
+/* pure side-menu.css menu color overrides */
+#menu {
+    background:#333;
+    color: #ede6e1;
+}
+
+#menu a {
+    color: #ede6e1;
+}
+
+#menu  .pure-menu li a:hover,
+#menu .pure-menu li a:focus {
+    background: #2d6c80;
 }
 
 
+#menu .pure-menu-heading {
+    background: #cc5624;
+    color: #fff;
+}
+
+/* pure side-menu.css footer overrides */
+.footer h2 {
+    color: #fff;
+}
+.footer a {
+    color: #fff;
+}
+
+.footer .pure-menu li a:hover,
+.footer .pure-menu li a:focus {
+      background: #2d6c80;
+    }
+
+
+/* pure pure-min.css button overrides */
+.button-xsmall {
+    font-size: 65%;
+    color: #ede6e1;
+    border-radius: 2px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#button1 {
+    background: #2d6c80;
+}
+
+#button2 {
+    background: #2d6c80;
+}
+
+/* new outlined box for each project */
+.project-box {
+    border: 1px solid #cc6633;
+    margin: 10px 10px 10px 0px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+/* colored backgrounds */
+.gray-background {
+    background-color: #bbb;
+    padding-bottom: 4px;
+    clear:both;
+}
+
+.orange-background {
+/*  background-color: #F3F3F3; */
+    background-color: #cc6633;
+    clear:both;
+}
+
+
+/* layout */
 .clearfix {
-  overflow: auto;
-}
-
-.education-entry, .work-entry, .project-entry {
-  padding-left: 5%;
-  padding-right: 5%;
+    overflow: auto;
 }
 
 h1 {
-  font-size: 40px;
-  font-weight:300;
-  color: #F5A623;
-  line-height: 48px;
-  display: inline;
-}
-
-h2 {
-  font-weight: 300;
-  font-size: 24px;
-  color: #999999;
-  line-height: 29px;
-  padding: 10px;
-}
-
-h3 {
-  font-style: normal;
-  font-size: 20px;
-  color: #000000;
-  line-height: 22px;
-  text-transform: uppercase;
-}
-
-h4 {
-  font-weight: 300;
-  font-size: 14px;
-  color: #4A4A4A;
-  line-height: 17px;
-}
-
-h2, h3, h4, h5 {
-  padding:10px;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-
-.date-text {
-  font-style: normal;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: left;
-}
-
-.location-text {
-  font-style: normal  ;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: right;
-
+    letter-spacing: 0.05em;
 }
 
 p {
-  font-size: 14px;
-  color: #333333;
-  line-height: 21px;
+    padding: 0 0 20px 0;
+    margin:0;
 }
 
 a {
-  color: #1199C3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
+    text-decoration: none;
+    margin-top: 0.125em;
+    display: block;
 }
 
-.welcome-message {
-  font-family: 'Lato', sans-serif;
-  font-style: normal;
-  font-size: 18px;
-  color: #F3F3F3;
-  line-height: 28px;
-}
-
-#skillsH3 {
-  color: #F5AE23;
-  display: none;
-}
-
-.orange {
-  background-color: #F5AE23;
-}
-
-.orange-text {
-  color: #F5AE23;
-}
-
-.white-text {
-  font-weight: bold;
-  color: #FFFFFF;
-}
-
-.gray {
-  background-color: #F3F3F3;
-  padding-bottom: 10px;
-  clear:both;
-}
-
-.dark-gray {
-  background-color: #4A4A4A;
-}
-
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
-}
-
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
-}
-
-ul {
-  list-style-type: none;
-}
-
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
-}
-
-img {
-  padding: 10px;
-}
-
-/* Bar chart stuff */
-.chart div {
-  font: 10px sans-serif;
-  background-color: #4A4A4A;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  height: 12px;
-  color: white;
-  display: inline-block;
-}
-
-span {
-  padding: 5px;
-}
-
-#letsConnect {
-  text-align: center;
-}
-
-@media only screen and (max-width: 1024px) {
-  #letsConnect {
-    margin-top: 5%;
+/* for small screens center headings*/
+@media (max-width: 48em) {
+h1,h2,h3 {
+  text-align:center;
   }
 }
 
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #letsConnect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
-}
-
+/* change google map behaviour in container*/
 #map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+    display: block;
+    height: 100%;
 }
 
 #mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+    height: 400px;
+    width: 100%;
+    padding-bottom: 5%;
 }
 
-@media only screen and (min-width: 750px) {
-  #skillsH3,
-  .biopic {
-    display: block;
-  }
+/* pure-min.css override default max-width*/
+
+.content {
+    max-width: 900px;
+}
+.content-subhead {
+    margin: 20px 0 20px 0;
 }
 
-.btn {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
-  border-radius: 4px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 14px;
-  padding: 5px 5px 5px 5px;
-  text-decoration: none;
+.header {
+    padding: 2.5em 2em 2em;
+    margin: 0 auto;
+    max-width: 900px;
 }
 
-.btn:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
+.footer {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.less-margin-below {
+  -webkit-margin-before: 0.5em;
+    margin-bottom: 0.5em;
+}
+.cap-height {
+    height: 128px;
+}
+
+/* pure side-menu.css over-rides */
+
+#menu a {
+    padding: 0.4em 0 0.4em 0.4em;
+}
+
+
+#menu .pure-menu-heading {
+    text-transform: none;
+    font-size: 140%;
+    min-height: 36px;
+    padding: 1.0em 0.4em 0.4em 0.8em;
+}
+
+#menu .pure-menu-list{
+    padding-top: 10px;
+    padding-left: 10px
+}
+
+/* pure side-menu.css footer overrides */
+#footContacts {
+    padding: 0px;
+}
+
+ul#footerContacts {
+    -webkit-padding-start: 0px;
+    font-size: 1em;
 }
